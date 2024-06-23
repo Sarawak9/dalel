@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 // line-height: 64px;
 // text-align: center;
 
-
 abstract class CustomTextStyles {
   static final pacifico400style64 = TextStyle(
     fontSize: 64,

@@ -1,4 +1,5 @@
 import 'package:dalel/core/routes/add_routes.dart';
+import 'package:dalel/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class Dalel extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.offWhite),
       routerConfig: router,
     );
   }
