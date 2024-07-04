@@ -24,12 +24,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           child: ListView(
             physics: const BouncingScrollPhysics(),
             children: [
-              const SizedBox(height: 30),
+              const SizedBox(height: 40),
               CustomNavBar(
-                onTap: () async {
-                  await CacheHelper()
-                      .saveData(key: "isOnBoardingVisited", value: true);
-                  customReplacementNavigate(context, "/signUp");
+                onTap: () {
+                  CacheHelper()
+                      .saveData(key: 'isOnBoardingVisited', value: true);
+                  customReplacementNavigate(context, "/signIn");
                 },
               ),
               OnBoardingWidgetBody(
@@ -40,7 +40,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 },
                 controller: _controller,
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 88),
               GetButtons(currentIndex: currentIndex, controller: _controller),
               const SizedBox(height: 17),
             ],

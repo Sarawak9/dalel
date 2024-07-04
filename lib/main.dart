@@ -1,8 +1,11 @@
+import 'package:dalel/core/databases/cach/cach_helper.dart';
 import 'package:dalel/core/routes/app_routes.dart';
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper().init();
   runApp(const Dalel());
 }
 

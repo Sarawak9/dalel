@@ -1,12 +1,6 @@
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-// font-family: Pacifico;
-// font-size: 64px;
-// font-weight: 400;
-// line-height: 64px;
-// text-align: center;
-
 abstract class CustomTextStyles {
   static final pacifico400style64 = TextStyle(
     fontSize: 64,
