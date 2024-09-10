@@ -1,7 +1,11 @@
 import 'package:dalel/core/functions/navigation.dart';
-import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
+import 'package:dalel/features/auth/presentation/widgets/custom_sign_in_form.dart';
+import 'package:dalel/features/auth/presentation/widgets/forgot_password_text_widget.dart';
+import 'package:dalel/features/auth/presentation/widgets/have_an_account_widget.dart';
+import 'package:dalel/features/auth/presentation/widgets/welcome_banner.dart';
+import 'package:dalel/features/auth/presentation/widgets/welcome_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignInView extends StatelessWidget {
@@ -10,46 +14,43 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
-        IconButton(
-          onPressed: () {
-            customNavigate(context, "/signUp");
-          },
-          icon: const Icon(Icons.logout),
-        )
-      ]),
+      body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: WelcomBanner(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 32,
+            ),
+          ),
+          SliverToBoxAdapter(
+              child: WelcomeTextWidget(
+            text: AppStrings.welcomeBack,
+          )),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: CustomSignInForm(),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: HaveAnAccountWidget(
+              text1: AppStrings.dontHaveAnAccount,
+              text2: AppStrings.signUp,
+              onTap: () {
+                customReplacementNavigate(context, "/signUp");
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
-
-  // Widget build(BuildContext context) {
-  //   return const Scaffold(
-  //     body: CustomScrollView(
-  //       slivers: [
-  //         SliverToBoxAdapter(
-  //           child: WelcomBanner(),
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
 }
-
-// class WelcomBanner extends StatelessWidget {
-//   const WelcomBanner({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         height: 290,
-//         decoration: BoxDecoration(color: AppColors.primaryColor),
-//         child: const Column(
-//           mainAxisAlignment: MainAxisAlignment.end,
-//           children: [
-//             Text(
-//               AppStrings.appName,
-//               style: CustomTextStyles.saira700style32,
-//             )
-//           ],
-//         ));
-//   }
-// }
