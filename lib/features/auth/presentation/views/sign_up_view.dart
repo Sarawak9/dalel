@@ -1,3 +1,4 @@
+import 'package:dalel/core/functions/navigation.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/features/auth/presentation/widgets/CustomSignUpForm.dart';
 import 'package:dalel/features/auth/presentation/widgets/have_an_account_widget.dart';
@@ -11,27 +12,26 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(right: 8.0, left: 8.0, top: 24),
+        padding: const EdgeInsets.only(right: 8.0, left: 8.0, top: 24),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 100,
               ),
             ),
-            SliverToBoxAdapter(
-              child: welcomeTextWidget(text: AppStrings.welcome),
+            const SliverToBoxAdapter(
+              child: WelcomeTextWidget(text: AppStrings.welcome),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 16,
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: CustomSignUpForm(),
             ),
-            SliverToBoxAdapter(),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 14,
               ),
@@ -40,9 +40,12 @@ class SignUpView extends StatelessWidget {
               child: HaveAnAccountWidget(
                 text1: AppStrings.alreadyHaveAnAccount,
                 text2: AppStrings.signIn,
+                onTap: () {
+                  customNavigate(context, "/signIn");
+                },
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 14,
               ),
